@@ -8,12 +8,15 @@ class PortfolioSlider extends Component {
     super(props);
     this.state = {
       currentGroupIndex: 0,
-      currentSlideIndex: 0
+      currentSlideIndex: 0,
+      currentSlidesLength: props.slidersArray[0].length
     }
+
+    console.log(this.state.currentSlidesLength);
 
     // Set non-state variables
     this.groupLength = this.props.thumbnailArray.length;
-    this.currentSlidesLength = this.props.slidersArray[this.state.currentGroupIndex].length;
+    // this.currentSlidesLength = this.props.slidersArray[0].length;
 
     // Bind methods
     this.shiftGroup = this.shiftGroup.bind(this);
@@ -31,9 +34,11 @@ class PortfolioSlider extends Component {
       if (targetIndex > this.groupLength - 1) {
         targetIndex = 0;
       }
-      this.setState({
-        currentGroupIndex: targetIndex
-      });
+      this.setState((state, props) => ({
+        currentGroupIndex: targetIndex,
+        currentSlideIndex: 0,
+        currentSlidesLength: props.slidersArray[targetIndex].length,
+      }));
     } else {
       let targetIndex = this.state.currentGroupIndex - 1;
       if (targetIndex < 0) {
@@ -53,7 +58,7 @@ class PortfolioSlider extends Component {
   shiftSlide(direction) {
     if (direction === 'next') {
       let targetIndex = this.state.currentSlideIndex + 1;
-      if (targetIndex > this.currentSlidesLength - 1) {
+      if (targetIndex > this.state.currentSlidesLength - 1) {
         targetIndex = 0;
       }
       this.setState({
@@ -62,7 +67,7 @@ class PortfolioSlider extends Component {
     } else {
       let targetIndex = this.state.currentSlideIndex - 1;
       if (targetIndex < 0) {
-        targetIndex = this.currentSlidesLength - 1;
+        targetIndex = this.state.currentSlidesLength - 1;
       }
       this.setState({
         currentSlideIndex: targetIndex
@@ -129,9 +134,9 @@ class PortfolioSlider extends Component {
                 <div className="portfolio-slider__image-slider-cont__slider__controls-cont">
                   <Control classes="portfolio-slider__image-slider-cont__slider__controls-cont__prev" onClick={(e) => this.shiftSlide('prev', e)} />
                   <p className="portfolio-slider__image-slider-cont__slider__controls-cont__index">
-                    <span className="js-current-image-num">1</span>
+                    <span>{ this.state.currentSlideIndex + 1 }</span>
                     /
-                    <span className="js-total-image-num">4</span>
+                    <span>{ this.state.currentSlidesLength }</span>
                   </p>
                   <Control classes="portfolio-slider__image-slider-cont__slider__controls-cont__next" onClick={(e) => this.shiftSlide('next', e)} />
                 </div>

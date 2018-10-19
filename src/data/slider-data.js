@@ -51,6 +51,7 @@ export const slidersArray = [
     'http://placekitten.com/658/752',
     'http://placekitten.com/631/752',
     'http://placekitten.com/701/751',
-    'http://placekitten.com/631/771'
+    'http://placekitten.com/631/771',
+    'http://placekitten.com/781/851',
   ]
 ];
