@@ -12,11 +12,8 @@ class PortfolioSlider extends Component {
       currentSlidesLength: props.slidersArray[0].length
     }
 
-    console.log(this.state.currentSlidesLength);
-
     // Set non-state variables
     this.groupLength = this.props.thumbnailArray.length;
-    // this.currentSlidesLength = this.props.slidersArray[0].length;
 
     // Bind methods
     this.shiftGroup = this.shiftGroup.bind(this);
