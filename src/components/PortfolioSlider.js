@@ -13,11 +13,7 @@ class PortfolioSlider extends Component {
     }
 
     // Set non-state variables
-    this.groupLength = this.props.thumbnailArray.length;
-
-    // Bind methods
-    this.shiftGroup = this.shiftGroup.bind(this);
-    this.shiftSlide = this.shiftSlide.bind(this);
+    this.groupLength = props.thumbnailArray.length;
   }
 
   /**
@@ -25,7 +21,7 @@ class PortfolioSlider extends Component {
    *
    * @return  {[type]}
    */
-  shiftGroup(direction) {
+  shiftGroup = direction => {
     if (direction === 'next') {
       let targetIndex = this.state.currentGroupIndex + 1;
       if (targetIndex > this.groupLength - 1) {
@@ -52,7 +48,7 @@ class PortfolioSlider extends Component {
    *
    * @return  {[type]}
    */
-  shiftSlide(direction) {
+  shiftSlide = direction => {
     if (direction === 'next') {
       let targetIndex = this.state.currentSlideIndex + 1;
       if (targetIndex > this.state.currentSlidesLength - 1) {
