@@ -31,12 +31,12 @@ class PortfolioSlider extends Component {
       if (targetIndex > this.groupLength - 1) {
         targetIndex = 0;
       }
-      this.setState((state, props) => ({
+      this.setState(() => ({
         currentGroupIndex: targetIndex,
         currentSlideIndex: 0,
-        currentSlidesLength: props.slidersArray[targetIndex].length,
       }));
-    } else {
+    }
+    else {
       let targetIndex = this.state.currentGroupIndex - 1;
       if (targetIndex < 0) {
         targetIndex = this.groupLength - 1;
@@ -61,7 +61,8 @@ class PortfolioSlider extends Component {
       this.setState({
         currentSlideIndex: targetIndex
       });
-    } else {
+    }
+    else {
       let targetIndex = this.state.currentSlideIndex - 1;
       if (targetIndex < 0) {
         targetIndex = this.currentSlidesLength - 1;
