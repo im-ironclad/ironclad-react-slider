@@ -18,8 +18,6 @@ class PortfolioSlider extends Component {
 
   /**
    * [shiftGroup - Function to shift between each group of sliders]
-   *
-   * @return  {[type]}
    */
   shiftGroup = direction => {
     if (direction === 'next') {
@@ -40,8 +38,6 @@ class PortfolioSlider extends Component {
 
   /**
    * [setGroupState update the state each group change]
-   *
-   * @return  {[type]}
    */
   setGroupState = (targetIndex) => {
     this.setState((state, props) => ({
@@ -53,8 +49,6 @@ class PortfolioSlider extends Component {
 
   /**
    * [shiftSlide - Function for shifting between each image slide]
-   *
-   * @return  {[type]}
    */
   shiftSlide = direction => {
     if (direction === 'next') {
