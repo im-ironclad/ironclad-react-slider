@@ -32,14 +32,17 @@ class PortfolioSlider extends Component {
         currentSlideIndex: 0,
         currentSlidesLength: props.slidersArray[targetIndex].length,
       }));
-    } else {
+    }
+    else {
       let targetIndex = this.state.currentGroupIndex - 1;
       if (targetIndex < 0) {
         targetIndex = this.groupLength - 1;
       }
-      this.setState({
-        currentGroupIndex: targetIndex
-      });
+      this.setState((state, props) => ({
+        currentGroupIndex: targetIndex,
+        currentSlideIndex: 0,
+        currentSlidesLength: props.slidersArray[targetIndex].length,
+      }));
     }
   }
 
@@ -57,7 +60,8 @@ class PortfolioSlider extends Component {
       this.setState({
         currentSlideIndex: targetIndex
       });
-    } else {
+    }
+    else {
       let targetIndex = this.state.currentSlideIndex - 1;
       if (targetIndex < 0) {
         targetIndex = this.state.currentSlidesLength - 1;
