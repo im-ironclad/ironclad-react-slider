@@ -27,23 +27,28 @@ class PortfolioSlider extends Component {
       if (targetIndex > this.groupLength - 1) {
         targetIndex = 0;
       }
-      this.setState((state, props) => ({
-        currentGroupIndex: targetIndex,
-        currentSlideIndex: 0,
-        currentSlidesLength: props.slidersArray[targetIndex].length,
-      }));
+      this.setGroupState(targetIndex);
     }
     else {
       let targetIndex = this.state.currentGroupIndex - 1;
       if (targetIndex < 0) {
         targetIndex = this.groupLength - 1;
       }
-      this.setState((state, props) => ({
-        currentGroupIndex: targetIndex,
-        currentSlideIndex: 0,
-        currentSlidesLength: props.slidersArray[targetIndex].length,
-      }));
+      this.setGroupState(targetIndex);
     }
+  }
+
+  /**
+   * [setGroupState update the state each group change]
+   *
+   * @return  {[type]}
+   */
+  setGroupState = (targetIndex) => {
+    this.setState((state, props) => ({
+      currentGroupIndex: targetIndex,
+      currentSlideIndex: 0,
+      currentSlidesLength: props.slidersArray[targetIndex].length,
+    }));
   }
 
   /**
