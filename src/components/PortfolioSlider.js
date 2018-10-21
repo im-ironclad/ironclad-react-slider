@@ -39,7 +39,7 @@ class PortfolioSlider extends Component {
    * [setGroupState update the state each group change]
    */
   setGroupState = (targetIndex) => {
-    this.setState((state, props) => ({
+    this.setState(() => ({
       currentGroupIndex: targetIndex,
       currentSlideIndex: 0,
     }));
